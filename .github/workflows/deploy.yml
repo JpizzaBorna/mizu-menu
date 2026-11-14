@@ -23,6 +23,7 @@ jobs:
           cat site.zip.part-* > site.zip
           mkdir _site
           unzip -q site.zip -d _site
+          for f in overlay*.zip; do if [ -f "$f" ]; then unzip -q -o "$f" -d _site; fi; done
           ls _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
