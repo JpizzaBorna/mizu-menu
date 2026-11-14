@@ -1,0 +1,10 @@
+name: Keep the menu server awake
+on:
+  schedule:
+    - cron: '17 6 */2 * *'
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -fsS https://iswslfdaeoaxgithwezm.supabase.co/functions/v1/api/menu -o /dev/null
